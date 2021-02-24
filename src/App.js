@@ -7,21 +7,20 @@ class App extends React.Component {
         this.state = {
             msg: "Welcome to Javapoint"
         };
-        this.updateSetState = this.updateSetState.bind(this);
+        this.forceUpdateState = this.forceUpdateState.bind(this);
 
     }
 
-    updateSetState(){
-        this.setState({
-            msg: "I am best react js "
-        });
+    forceUpdateState(){
+        this.forceUpdate();
     }
 
     render(){
         return (
             <div>
-                <h1>{this.state.msg}</h1>
-                <button onClick={this.updateSetState}>Set state</button>
+                <h1>Example to generate random number</h1>
+                <h3>Random number: {Math.random()}</h3>
+                <button onClick={this.forceUpdateState}>Force Update</button>
             </div>
         );
     }
