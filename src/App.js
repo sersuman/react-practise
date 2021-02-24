@@ -1,43 +1,28 @@
 import React, { Component } from 'react';  
   
 class App extends React.Component {  
-   constructor(props) {  
-      super(props);  
-      this.state = {hello: "JavaTpoint"};  
-      this.changeState = this.changeState.bind(this)  
-   }    
-   render() {  
-      return (  
-         <div>  
-             <h1>ReactJS component's Lifecycle</h1>  
-             <h3>Hello {this.state.hello}</h3>  
-             <button onClick = {this.changeState}>Click Here!</button>          
-         </div>  
-      );  
-   }  
-   componentWillMount() {  
-      console.log('Component Will MOUNT!')  
-   }  
-   componentDidMount() {  
-      console.log('Component Did MOUNT!')  
-   }  
-   changeState(){  
-      this.setState({hello:"All!!- Its a great reactjs tutorial."});  
-   }  
-   componentWillReceiveProps(newProps) {      
-      console.log('Component Will Recieve Props!')  
-   }  
-   shouldComponentUpdate(newProps, newState) {  
-      return true;  
-   }  
-   componentWillUpdate(nextProps, nextState) {  
-      console.log('Component Will UPDATE!');  
-   }  
-   componentDidUpdate(prevProps, prevState) {  
-      console.log('Component Did UPDATE!')  
-   }  
-   componentWillUnmount() {  
-      console.log('Component Will UNMOUNT!')  
-   }  
+   constructor(props){
+       super(props);
+       this.updateSubmit = this.updateSubmit.bind(this);
+       this.input = React.createRef();
+   }
+   updateSubmit(event){
+       alert('You have entered the UserName and CompanyName successfully.');
+       event.preventDefault();
+   }
+   render(){
+       return(
+           <form onSubmit={this.updateSubmit}>
+               <h1>Uncontrolled Form Example</h1>
+               <label>Name:
+                   <input type="text" ref={this.input} />
+               </label>
+               <label>Company Name:
+                   <input type="text" ref={this.input}/>
+               </label>
+               <input type="submit" value="Submit" />
+           </form>
+       )
+   }
 }  
 export default App;  
