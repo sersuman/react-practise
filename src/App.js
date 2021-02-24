@@ -1,59 +1,23 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types';
-
-class App extends React.Component {
-    render() {
-        return (
-            <div>
-                <h1> React Js Props validation example</h1>
-                <table>
-                    <tr>
-                        <th>Type</th>
-                        <th>Value</th>
-                        <th>Valid</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            Array
-                        </td>
-                        <td>{this.props.propArray}</td>
-                        <td>{this.props.propArray ? "true":"False"}</td>
-                    </tr>
-                    <tr>
-                        <td>Boolean</td>
-                        <td>{this.props.propBool ? "true":"false"}</td>
-                        <td>{this.props.propBool ? "true": "false"}</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>String</td>
-                        <td>{this.props.propString}</td>
-                        <td>{this.props.propString ? "true":"False" }</td>
-                    </tr>
-                    <tr>
-                        <td> Number </td>
-                        <td> {this.props.propNumber}</td>
-                        <td> {this.props.propNumber ? "true":"false"}</td>
-                    </tr>
-                </table>
-            </div>
-        );
-    }
-}
-
-App.propTypes = {
-    propArray: PropTypes.array.isRequired,
-    propBool: PropTypes.bool.isRequired,
-    propFunc: PropTypes.func,
-    propNumber: PropTypes.number,
-    propString: PropTypes.string,
-}
-
-App.defaultProps = {
-    propArray: [1,2,3,4,5],
-    propBool: true,
-    propFunc: function(x){return x+5},
-    propNumber: 1,
-    propString: "JavaTpoint",
-}
-export default App;
+import React, { Component } from 'react';  
+  
+class App extends Component {  
+  constructor(props){  
+    super(props);  
+    this.state = {  
+         data: 'www.javatpoint.com'  
+      }  
+  }  
+   handleEvent = () => {  
+    console.log(this.props);  
+  }  
+  render() {  
+    return (  
+      <div className="App">  
+    <h2>React Constructor Example</h2>  
+    <input type ="text" value={this.state.data} />  
+        <button onClick={this.handleEvent}>Please Click</button>  
+      </div>  
+    );  
+  }  
+}  
+export default App; 
