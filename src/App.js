@@ -1,34 +1,43 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-
-class App extends React.Component {
-    constructor() {
-        super();
-        this.findDomNodeHandler1 = this.findDomNodeHandler1.bind(this);
-        this.findDomNodeHandler2 = this.findDomNodeHandler2.bind(this);
-    }
-
-    findDomNodeHandler1(){
-        var myDiv = document.getElementById('myDivOne');
-        ReactDOM.findDOMNode(myDiv).style.color='red';
-    }
-
-    findDomNodeHandler2(){
-        var myDiv = document.getElementById('myDivTwo');
-        ReactDOM.findDOMNode(myDiv).style.color = 'blue';
-    }
-
-    render(){
-        return (
-            <div>
-                <h1>ReactJS Find DOM Node Example</h1>
-                <button onClick={this.findDomNodeHandler1}>FIND_DOM_NODE1</button>
-                <button onClick= {this.findDomNodeHandler2}>FIND_DOM_NODE2</button>
-                <h3 id="myDivOne">JTP-NODE1</h3>
-                <h3 id="myDivTwo">JTP-NODE2</h3>
-            </div>
-        );
-    }
-}
-
-export default App;
+import React, { Component } from 'react';  
+  
+class App extends React.Component {  
+   constructor(props) {  
+      super(props);  
+      this.state = {hello: "JavaTpoint"};  
+      this.changeState = this.changeState.bind(this)  
+   }    
+   render() {  
+      return (  
+         <div>  
+             <h1>ReactJS component's Lifecycle</h1>  
+             <h3>Hello {this.state.hello}</h3>  
+             <button onClick = {this.changeState}>Click Here!</button>          
+         </div>  
+      );  
+   }  
+   componentWillMount() {  
+      console.log('Component Will MOUNT!')  
+   }  
+   componentDidMount() {  
+      console.log('Component Did MOUNT!')  
+   }  
+   changeState(){  
+      this.setState({hello:"All!!- Its a great reactjs tutorial."});  
+   }  
+   componentWillReceiveProps(newProps) {      
+      console.log('Component Will Recieve Props!')  
+   }  
+   shouldComponentUpdate(newProps, newState) {  
+      return true;  
+   }  
+   componentWillUpdate(nextProps, nextState) {  
+      console.log('Component Will UPDATE!');  
+   }  
+   componentDidUpdate(prevProps, prevState) {  
+      console.log('Component Did UPDATE!')  
+   }  
+   componentWillUnmount() {  
+      console.log('Component Will UNMOUNT!')  
+   }  
+}  
+export default App;  
